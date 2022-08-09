@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html>
+ <head>
+	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
+	
+	<title>Encryptor | Home</title>
+	
+	<link rel='stylesheet' type='text/css' href='static/style.css' />
+	
+	<!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+	
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js'></script>
+    <script type='text/javascript' src='js/jquery.ba-hashchange.min.js'></script>
+    <script type='text/javascript' src='js/dynamicpage.js'></script>
+    <style>
+    .holder::-webkit-scrollbar {
+      width: 10px;               /* width of the entire scrollbar */
+    }
+
+    .holder::-webkit-scrollbar-track {
+      background: black;        /* color of the tracking area */
+    }
+
+    .holder::-webkit-scrollbar-thumb {
+      background-color: cyan;    /* color of the scroll thumb */
+      border-radius: 10px;       /* roundness of the scroll thumb */
+      border: 3px solid black;  /* creates padding around scroll thumb */
+    }
+
+    body{
+      background-color: black;
+    }
+    .container{
+      background-color: black;
+      height: 80%;
+      width:  50%;
+      margin-left: 25%;
+    }
+    .container h1
+    {
+      color:  cyan;
+      padding-left: 1.2rem;
+    }
+
+    .container h2
+    {
+      color:  cyan;
+      padding-left: 20px;
+      font-size: 1.1rem;
+    }
+    .container p
+    {
+      color: white;
+      padding-left:20px;
+      overflow: auto;
+      size: .9rem;
+    }
+    .searchBar{
+      height: 20%;
+      margin: 20px;
+      padding: 5px;
+      display: block;
+      width: 70%;
+    }
+    .searchBar input[type=text] {
+      padding: 6px;
+      margin-top: 2px;
+      margin-left: 20%;
+      border: 2px solid cyan;
+      font-size: 16px;
+      background-color: black;
+      text-decoration: none;
+      color: white;
+      width: 100%;
+      border-radius:  15px;
+    }
+    .searchBar:focus
+    {
+      margin-left: 10px;
+      padding-top: 10px;
+      font-size: 0.9rem;
+      color: cyan;
+      background-color: black;
+      border: none;
+      box-shadow: none;
+      outline: none;
+      -webkit-appearance: none;
+
+    }
+
+    ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: white;
+      opacity: 1; /* Firefox */
+      background-color: black;
+    }
+    ::placeholder:focus { /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: cyan;
+      opacity: 1; /* Firefox */
+      background-color:  black;
+    }
+
+    .holder
+    {
+      background-color: black;
+      height: 730px;
+	    width: 900px;
+      border: 2px solid cyan;
+      margin-left: 0%;
+      margin-right: 5%;
+      border-radius: 12px;
+      overflow: auto;
+
+    }
+    .dataHolder{
+      border: 2px solid cyan;
+      height: auto;
+      width: 95%;
+      border-radius: 10px;
+      color: white;
+      font-size: .1rem;
+      margin-left: 20px;
+      padding-left: 20px;
+    }
+    .holder li{
+      border-radius: 2px;
+      padding: 5px;
+      color: white;
+      font-size: .9rem;
+      padding-left: 20px;
+
+    }
+    .holder a{
+      color: cyan;
+      text-decoration: none;
+    }
+    </style>
+</head>
+
+<body>
+
+	<div class="container">
+    <div class="searchBar">
+    </div>
+    <div class="holder">
+      <h1>Data</h1>
+      {%for data in listData%}
+        <h2>
+          {{data.Name}}
+        </h2>
+        <p>
+          Syn : {{data.Syn}}
+        </p>
+        <ul class="dataHolder">
+          {%for item in data.Details%}
+          <li>
+            <br>
+          </li>
+          {%endfor%}
+        </ul>
+      {%endfor%}
+    </div>
+  </div>
+</body>
+</html>
