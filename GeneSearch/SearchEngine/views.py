@@ -1,6 +1,11 @@
 from django.http import HttpResponse
 from django.template import loader 
+from rest_framework.views import APIView
+from rest_framework.views import Response
+from rest_framework.views import status
+from rest_framework.views import permissions
 from .models import *
+
 
 
 
@@ -23,3 +28,7 @@ def index(request):
         })
     template=loader.get_template('index.html')
     return HttpResponse(template.render(context, request))
+
+class CitationDataApi(APIView):
+    def get(self,request,*args,**kwargs):
+        return Response("asd", status=status.HTTP_200_OK)
