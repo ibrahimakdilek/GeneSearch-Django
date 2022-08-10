@@ -2,9 +2,14 @@
 <!DOCTYPE html>
 <html>
  <head>
+  <style>
+    html * {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
 	<meta http-equiv='Content-Type' content='text/html; charset=UTF-8' />
 	
-	<title>Encryptor | Home</title>
+	<title>TTU | Gene Search Project</title>
 	
 	<link rel='stylesheet' type='text/css' href='static/style.css' />
 	
@@ -21,40 +26,44 @@
     }
 
     .holder::-webkit-scrollbar-track {
-      background: black;        /* color of the tracking area */
+      background: #CCCCCC;        /* color of the tracking area */
     }
 
     .holder::-webkit-scrollbar-thumb {
-      background-color: cyan;    /* color of the scroll thumb */
+      background-color: #CC0000;    /* color of the scroll thumb */
       border-radius: 10px;       /* roundness of the scroll thumb */
-      border: 3px solid black;  /* creates padding around scroll thumb */
+      border: 3px solid #CCCCCC;  /* creates padding around scroll thumb */
     }
 
     body{
-      background-color: black;
+      background-color: #CCCCCC;
     }
     .container{
-      background-color: black;
+      background-color: #CCCCCC;
       height: 80%;
       width:  50%;
       margin-left: 25%;
+      margin-right: 25%;
     }
     .container h1
     {
-      color:  cyan;
+      color:  #CC0000;
       padding-left: 1.2rem;
+      padding-right: 1.2rem;
     }
 
     .container h2
     {
-      color:  cyan;
+      color:  #CC0000;
       padding-left: 20px;
+      padding-right: 20px;
       font-size: 1.1rem;
     }
     .container p
     {
-      color: white;
+      color: rgb(0, 0, 0);
       padding-left:20px;
+      padding-right:20px;
       overflow: auto;
       size: .9rem;
     }
@@ -69,9 +78,10 @@
       padding: 6px;
       margin-top: 2px;
       margin-left: 20%;
-      border: 2px solid cyan;
+      margin-right: 20%;
+      border: 2px solid #CC0000;
       font-size: 16px;
-      background-color: black;
+      background-color: #CCCCCC;
       text-decoration: none;
       color: white;
       width: 100%;
@@ -80,10 +90,11 @@
     .searchBar:focus
     {
       margin-left: 10px;
+      margin-right: 10px;
       padding-top: 10px;
       font-size: 0.9rem;
-      color: cyan;
-      background-color: black;
+      color: #CC0000;
+      background-color: #CCCCCC;
       border: none;
       box-shadow: none;
       outline: none;
@@ -94,20 +105,20 @@
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
       color: white;
       opacity: 1; /* Firefox */
-      background-color: black;
+      background-color: #CCCCCC;
     }
     ::placeholder:focus { /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: cyan;
+      color: #CC0000;
       opacity: 1; /* Firefox */
-      background-color:  black;
+      background-color:  #CCCCCC;
     }
 
     .holder
     {
-      background-color: black;
+      background-color: #CCCCCC;
       height: 730px;
 	    width: 900px;
-      border: 2px solid cyan;
+      border: 2px solid #CC0000;
       margin-left: 0%;
       margin-right: 5%;
       border-radius: 12px;
@@ -115,7 +126,7 @@
 
     }
     .dataHolder{
-      border: 2px solid cyan;
+      border: 2px solid #CC0000;
       height: auto;
       width: 95%;
       border-radius: 10px;
@@ -123,6 +134,8 @@
       font-size: .1rem;
       margin-left: 20px;
       padding-left: 20px;
+      margin-right: 20px;
+      padding-right: 20px;
     }
     .holder li{
       border-radius: 2px;
@@ -130,11 +143,14 @@
       color: white;
       font-size: .9rem;
       padding-left: 20px;
+      padding-right: 20px;
+
 
     }
     .holder a{
-      color: cyan;
+      color: #CC0000;
       text-decoration: none;
+      align-self: center;
     }
     </style>
 </head>
@@ -145,11 +161,14 @@
     <div class="searchBar">
     </div>
     <div class="holder">
-      <h1>Data</h1>
+      <h1>Result(s) of this search generated in t seconds </h1>
       {%for data in listData%}
         <h2>
           {{data.Name}}
         </h2>
+        <p>
+          hgnc : {{data.hgncid}}
+        </p>
         <p>
           Syn : {{data.Syn}}
         </p>
