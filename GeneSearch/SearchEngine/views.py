@@ -1,4 +1,3 @@
-from re import T
 from django.http import HttpResponse
 from django.template import loader 
 from .models import *
@@ -12,8 +11,14 @@ def index(request):
     }
     for res in X: 
         context['listData'].append({
-            'HGNCID':res.approvedname,
-            'Syn':res.synonyms,
+            'HGNCID':res.hgncid,
+            'ApprovedName':res.approvedname,
+            'ApprovedSymbol':res.approvedsymbol,
+            'PreviousName':res.previousname,
+            'Status':res.status,
+            'DateNameChanged':res.datenamechanged,
+            'PreviousSymbols':res.previoussymbols,
+            'Synonyms':res.synonyms,
             
         })
     template=loader.get_template('index.html')

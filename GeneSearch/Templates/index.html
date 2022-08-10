@@ -83,7 +83,7 @@
       font-size: 16px;
       background-color: #CCCCCC;
       text-decoration: none;
-      color: white;
+      color: #CCCCCC;
       width: 100%;
       border-radius:  15px;
     }
@@ -103,7 +103,7 @@
     }
 
     ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-      color: white;
+      color: #CCCCCC;
       opacity: 1; /* Firefox */
       background-color: #CCCCCC;
     }
@@ -130,7 +130,7 @@
       height: auto;
       width: 95%;
       border-radius: 10px;
-      color: white;
+      color: #CCCCCC;
       font-size: .1rem;
       margin-left: 20px;
       padding-left: 20px;
@@ -140,7 +140,7 @@
     .holder li{
       border-radius: 2px;
       padding: 5px;
-      color: white;
+      color: #CCCCCC;
       font-size: .9rem;
       padding-left: 20px;
       padding-right: 20px;
@@ -152,7 +152,34 @@
       text-decoration: none;
       align-self: center;
     }
+
+
+    .accordion {
+      background-color: #CCCCCC;
+      color: rgb(0, 0, 0);
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+      transition: 05.2s;
+    }
+
+    .active, .accordion:hover {
+      background-color: #ccc; 
+    }
+
+    .panel {
+      padding: 0 18px;
+      display: none;
+      background-color: #CCCCCC;
+      overflow: hidden;
+    }
+
     </style>
+
 </head>
 
 <body>
@@ -166,14 +193,45 @@
         <h2>
           {{data.Name}}
         </h2>
+        
+        <h2>
+          Approved Symbol of the Gene: {{data.ApprovedSymbol}}
+        </h2>
         <p>
-          hgnc : {{data.hgncid}}
+          HUGO Gene Nomenclature Committee ID: {{data.HGNCID}}
         </p>
         <p>
-          Syn : {{data.Syn}}
+          Previous Symbols of the Gene: {{data.PreviousSymbols}}
         </p>
+        <p>
+          Synonyms: {{data.Synonyms}}
+        </p>
+        <p>
+          Date for the Latest Name Change: {{data.DateNameChanged}}
+        </p>
+
+        <button class="btn" data-toggle="collapse" data-target="hide">More Information About {{data.ApprovedSymbol}}</button>
+
+        <div id="demo" class="collapse">
+
+          <p>
+            Approved Name of the {{data.ApprovedSymbol}}: {{data.ApprovedName}}
+          </p>
+          <p>
+            Previous Name of the {{data.ApprovedSymbol}}: {{data.previousname}}
+          </p>
+          <p>
+            Status of the {{data.ApprovedSymbol}}: {{data.Status}}
+          </p>
+
+        </div>
+
+        
+        
+        
         <ul class="dataHolder">
           {%for item in data.Details%}
+          
           <li>
             <br>
           </li>
@@ -182,5 +240,6 @@
       {%endfor%}
     </div>
   </div>
-</body>
+  
+  
 </html>
